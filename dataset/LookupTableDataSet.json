@@ -1,0 +1,20 @@
+{
+	"name": "LookupTableDataSet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlTableLinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"tableName": {
+				"type": "string"
+			},
+			"schemaName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	}
+}
