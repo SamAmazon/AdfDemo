@@ -51,7 +51,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('LookupExportedTables').output",
+						"value": "@activity('LookupExportedTables').output.value",
 						"type": "Expression"
 					},
 					"activities": [
@@ -69,11 +69,11 @@
 							"userProperties": [
 								{
 									"name": "Source",
-									"value": "@{item().value.Table_Schema}.@{item().value.Table_Name}"
+									"value": "@{item().Table_Schema}.@{item().Table_Name}"
 								},
 								{
 									"name": "Destination",
-									"value": "main/@{'output'}/@{concat(item().value.Table_Name, '.csv')}"
+									"value": "main/@{'output'}/@{concat(item().Table_Name, '.csv')}"
 								}
 							],
 							"typeProperties": {
@@ -109,11 +109,11 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"schemaName": {
-											"value": "@item().value.Table_Schema",
+											"value": "@item().Table_Schema",
 											"type": "Expression"
 										},
 										"tableName": {
-											"value": "@item().value.Table_Name",
+											"value": "@item().Table_Name",
 											"type": "Expression"
 										}
 									}
@@ -126,7 +126,7 @@
 									"parameters": {
 										"dirName": "output",
 										"fileName": {
-											"value": "@concat(item().value.Table_Name, '.csv')",
+											"value": "@concat(item().Table_Name, '.csv')",
 											"type": "Expression"
 										}
 									}
