@@ -1,0 +1,51 @@
+{
+	"name": "CsvFileDataSet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SamAmazonBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"dirName": {
+				"type": "string"
+			},
+			"fileName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().fileName",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().dirName",
+					"type": "Expression"
+				},
+				"container": "main"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Date",
+				"type": "String"
+			},
+			{
+				"name": "Name",
+				"type": "String"
+			},
+			{
+				"name": "NAV",
+				"type": "String"
+			}
+		]
+	}
+}
